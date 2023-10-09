@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% load static %}
+
+  {% block conteudo %}
+  <body>
+     <link rel="stylesheet" href="{% static 'css/Doe.css' %}">  
+    <div class="container">
+      <div class="form">
+        <form action="{% url 'cadastro_ong' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-header">
+                <div class="title">
+                    <h1>Doe </h1>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-box">
+            <label for="firstname"> Nome </label>
+            <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
+        </div>
+        <div class="input-box">
+          <label for="number">Celular</label>
+          <input id="number" type="number" name="number" placeholder="(xx) xxxx-xxxx" required>
+      </div>
+      <div class="input-box">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      <div class="payment-section">
+        <div class="payment-title">
+            <h7>Forma de Pagamento</h6>
+        </div>
+  </body>
+  
+  <div class="payment-options">
+    <div class="payment-option">
+        <input id="boleto" type="radio" name="payment">
+        <label for="boleto">Boleto</label>
+    </div>
+
+    <div class="payment-option">
+        <input id="pix" type="radio" name="payment">
+        <label for="pix">Pix</label>
+    </div>
+</div>
+</div>
+
+<div class="input-box">
+<label for="valor">Valor</label>
+<input id="valor" type="text" name="valor" placeholder="R$10,00" required>
+</div>
+
+<div class="continue-button">
+<button><a href="{% url 'inicio' %}">Confirmar</a></button>
+</div>
+
+{% endblock %}
